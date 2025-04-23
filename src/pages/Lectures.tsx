@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Tabs,
@@ -15,9 +16,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { BookAudio, Search, Clock, Play, Bookmark, BookmarkPlus, Star, Download, Share2, Volume2, ThumbsUp, ThumbsDown, ListFilter, User, Eye, Headphones, Hand, Book, Settings, Layers } from "lucide-react";
+import {
+  BookAudio, Search, Clock, Play, Bookmark, BookmarkPlus, Star, Download, Share2, Volume2, ThumbsUp, ThumbsDown, ListFilter, User, Eye, Headphones, Hand, Book, Settings, Layers
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 // -- Sample avatars/gestures --
 const personaStyles = [
@@ -363,7 +367,7 @@ const Lectures = () => {
                 Select Your Learning Style
               </h2>
               <p className="mb-4 text-gray-700">
-                Pick how you’d like the AI professor to deliver the lecture! Each mode optimizes your learning experience.
+                Pick how you'd like the AI professor to deliver the lecture! Each mode optimizes your learning experience.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 {learningModes.map((mode) => (
@@ -688,3 +692,30 @@ const Lectures = () => {
                       </CardHeader>
                       <CardContent className="p-4 pt-0 pb-2">
                         <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-600">{lecture.course}</span>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
+                            <span>{lecture.rating}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="p-4 pt-2">
+                        <Button className="w-full" size="sm">
+                          <Play className="h-4 w-4 mr-2" />
+                          Watch Lecture
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default Lectures;
